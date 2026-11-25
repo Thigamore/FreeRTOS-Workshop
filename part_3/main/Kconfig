@@ -1,0 +1,7 @@
+menu "workshop project options"
+
+    config WORKSHOP_DEBUG
+        bool "Set whether the workshop code should be in debug or not"
+        default y
+
+endmenu
