@@ -235,7 +235,7 @@ void poll_task(void* params) {
     ESP_LOGI(POLL_TAG, "Starting Poll Task");
 
     for (;;) {
-        ESP_LOGI(POLL_TAG, "Poll")
+        ESP_LOGI(POLL_TAG, "Poll");
 
         vTaskDelay(pdMS_TO_TICKS(100));
     }
@@ -247,7 +247,7 @@ void poll_task(void* params) {
 void app_main(void)
 {
     ESP_LOGI(MAIN_TAG, "Starting Main Task");
-
+    
     // Initialize gpio/leds
     led_init();
     gpio_init();
@@ -255,6 +255,7 @@ void app_main(void)
     // Determine the sequence
     int sequence[MAX_LEVEL];
     generate_random_sequence(sequence);
+    int level = 1;
 
     // Initialize the poll thread
     xTaskCreate(poll_task, "Poll Task", STACK_DEPTH, NULL, POLL_PRIO, NULL);

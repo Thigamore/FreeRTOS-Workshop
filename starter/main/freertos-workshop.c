@@ -252,8 +252,9 @@ void app_main(void)
     // Determine the sequence
     int sequence[MAX_LEVEL];
     generate_random_sequence(sequence);
+    int level = 1;
 
     while(true) {
-        showSequence(sequence, MAX_L);
+        showSequence(sequence, level);
     }
 }

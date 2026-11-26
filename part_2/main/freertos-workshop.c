@@ -235,6 +235,9 @@ void generate_random_sequence(int sequence[MAX_LEVEL]) {
 void poll_task(void* params) {
     
     ESP_LOGI(POLL_TAG, "Starting Poll Task");
+    int count = 0;
+    int last_pressed = -1;
+    int last_iteration = 0;
 
     for (;;) {
         xSemaphoreTake(mutex, portMAX_DELAY);

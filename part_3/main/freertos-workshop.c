@@ -71,6 +71,8 @@ static const char* MAIN_TAG = "Main";
 static uint16_t level;
 static int button_presses[MAX_LEVEL];
 static SemaphoreHandle_t mutex;
+static TaskHandle_t main_task_h;
+static TaskHandle_t poll_task_h;
 
 // -------------  LED Helper funcs -----------
 
@@ -235,6 +237,9 @@ void generate_random_sequence(int sequence[MAX_LEVEL]) {
 void poll_task(void* params) {
     
     ESP_LOGI(POLL_TAG, "Starting Poll Task");
+    int count = 0;
+    int last_pressed = -1;
+    int last_iteration = 0;
 
     for (;;) {
         ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
