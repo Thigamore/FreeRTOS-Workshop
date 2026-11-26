@@ -63,7 +63,7 @@ static const char* MAIN_TAG = "Main";
 
 #define DEBUG (1)
 
-#define MAX_LEVEL (4)
+#define MAX_LEVEL (20)
 
 // ------------ GLOBALS ---------------
 
